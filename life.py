@@ -72,11 +72,12 @@ def next_board_state(board_state):
                         continue
 
                     # calculates the indices of neighboring cell
-                    ni = x + i
-                    nj = y + j
+                    # modulus arithmetic allows us to wrap around, so the top row will check the bottom row
+                    ni = (x + i) % row
+                    nj = (y + j) % col
 
                     # checks if the neighboring cell is alive
-                    if 0 <= ni < row and 0 <= nj < col and board_state[ni][nj] == 1:
+                    if board_state[ni][nj] == 1:
                         live_neighbors += 1
 
             # apply the rules

@@ -22,9 +22,9 @@ class TestLife(unittest.TestCase):
             [0, 0, 0],
         ]
         expected_state = [
-            [0, 1, 0],
-            [0, 1, 0],
-            [0, 1, 0],
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 1, 1],
         ]
         self.assertEqual(next_board_state(board_state), expected_state)
     
@@ -35,8 +35,8 @@ class TestLife(unittest.TestCase):
             [0, 0, 0],
         ]
         expected_state = [
-            [1, 0, 1],
-            [1, 0, 1],
+            [0, 0, 0],
+            [0, 0, 0],
             [0, 0, 0],
         ]
         self.assertEqual(next_board_state(board_state), expected_state)
@@ -48,9 +48,22 @@ class TestLife(unittest.TestCase):
             [0, 0, 0],
         ]
         expected_state = [
-            [0, 1, 1],
-            [0, 1, 1],
-            [0, 0, 0],
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 1, 1],
+        ]
+        self.assertEqual(next_board_state(board_state), expected_state)
+
+    def test_board_wrap(self):
+        board_state = [
+            [0, 0, 1],
+            [0, 0, 1],
+            [0, 0, 1],
+        ]
+        expected_state = [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 1, 1],
         ]
         self.assertEqual(next_board_state(board_state), expected_state)
 

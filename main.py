@@ -2,8 +2,10 @@ from life import *
 
 #--------------------------
 
-board = random_state(5, 5)
+board = random_state(50, 50)
 render(board)
-new_board = next_board_state(board)
-render(new_board)
+
+while (True):
+    board = next_board_state(board)
+    render(board)
 
